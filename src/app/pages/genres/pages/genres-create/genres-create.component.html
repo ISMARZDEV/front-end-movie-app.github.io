@@ -1,1 +1,78 @@
-<p>movie-genres-create works!</p>
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="formUser" (ngSubmit)="procesar()" >
+      <div>
+        <h1 class="title text-primary">Crear Genero</h1>
+
+        <div class="row g-5 gl-xl-9 mb-5">
+          <div class="col-xl-6">
+            <label class="form-label required"> Nombre </label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Ingresar Genero"
+              formControlName="name"
+            />
+            <div
+              class="text-danger mt-2"
+              [hidden]="name.valid || name.pristine"
+            >
+              Este campo es requerido
+            </div>
+          </div>
+
+          <div class="col-xl-6">
+            <label class="form-label required"> Email </label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Ingresar Email"
+              formControlName="email"
+            />
+            <div
+              class="text-danger mt-2"
+              [hidden]="email.valid || email.pristine"
+            >
+              <span *ngIf="email.errors?.['required']"
+                >Este campo es requerido</span
+              >
+
+              <span *ngIf="email.errors?.['email']"
+                >Este Email no es valido</span
+              >
+            </div>
+          </div>
+
+          <div row g-5 gl-xl-9 mb-5>
+            <div class="col-xl-12">
+              <label class="form-label required"> Dirección </label>
+              <input type="text" class="form-control" placeholder="Ingresar Dirección" formControlName="direction">
+            </div>
+            <div class="text-danger mt-2" [hidden]="direction.valid || direction.pristine">
+              Este campo es requerido
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex gap-4 justify-content-end">
+        <button
+        class="btn btn-bg-secondary"
+        routerLink="/genres/list">
+          Cancelar
+        </button>
+        <button
+        type="submit"
+
+        class="btn btn-primary
+        "
+        [disabled]="formUser.invalid">
+          Guardar Cambios
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- {{ name.value }}
+{{ email.value }} -->
