@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { actorCreateDTO } from 'src/app/_metronic/shared/interfaces/actors/actor.interface';
 
 @Component({
   selector: 'app-actors-create',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class ActorsCreateComponent {
 
+  saveChanges(Actor: actorCreateDTO){
+    console.log(Actor)
+  }
 }

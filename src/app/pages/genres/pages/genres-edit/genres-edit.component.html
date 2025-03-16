@@ -1,1 +1,10 @@
-<p>genres-edit works!</p>
+
+
+<div class="card">
+  <div class="card-body">
+    <h1>Editar Genero</h1>
+    <app-genres-form
+    [model]="model"
+    (submit)="saveChanges($event)"></app-genres-form>
+  </div>
+</div>

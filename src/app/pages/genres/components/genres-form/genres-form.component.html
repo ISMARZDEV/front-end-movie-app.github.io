@@ -1,0 +1,66 @@
+<form [formGroup]="genresForm" (submit)="processor()">
+  <div class="row mb-5">
+    <div class="col-xl-12">
+      <label class="form-label required">Nombre del Genero</label>
+      <input
+        class="form-control"
+        type="text"
+        formControlName="genresName"
+        placeholder="Ingresar Nombre del Genero"
+      />
+      <div class="text-danger mt-2">
+        <span *ngIf="genresForm.invalid">{{ getErrorForm('genresName') }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex gap-4 justify-content-end">
+    <a routerLink="/genres/list" class="btn btn-bg-secondary">Cancelar</a>
+    <button class="btn btn-primary" [disabled]="genresForm.invalid">Guardar Cambios</button>
+  </div>
+</form>
+
+
+
+
+
+
+
+<!-- <form (submit)="procesar()" [formGroup]="genresForm" >
+  <div>
+    <div class="row g-5 gl-xl-9 mb-5">
+
+      <div class="col-xl-12">
+        <label class="form-label required"> Nombre del Genero </label>
+        <input
+          type="genresName"
+          class="form-control"
+          placeholder="Ingresar Nombre del Genero"
+          formControlName="genresName"
+        />
+        <div
+          class="text-danger mt-2"
+        >
+          <span *ngIf="genresForm.invalid"
+            >{{ getErrorForm() }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex gap-4 justify-content-end">
+    <a
+    class="btn btn-bg-secondary"
+    routerLink="/genres/list">
+      Cancelar
+    </a>
+    <button
+    type="submit"
+
+    class="btn btn-primary
+    "
+    [disabled]="genresForm.invalid">
+      Guardar Cambios
+    </button>
+  </div>
+</form> -->

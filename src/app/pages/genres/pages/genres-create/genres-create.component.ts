@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { genresCreateDTO } from 'src/app/_metronic/shared/interfaces/genres/genres.interface';
 
 @Component({
   selector: 'app-genres-create',
@@ -8,27 +9,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class GenresCreateComponent {
 
-  get name(){
-    return this.formUser.get('name') as FormControl;
-  }
-  get email(){
-    return this.formUser.get('email') as FormControl;
-  }
-  get direction(){
-    return this.formUser.get('direction') as FormControl;
-  }
+  constructor (private router: Router) { }
 
-  formUser = new FormGroup({
-  'name': new FormControl('', Validators.required),
-  'email': new FormControl('', [Validators.required, Validators.email]),
-  'direction': new FormControl('', Validators.required)
-  })
-
-  procesar(){
-    console.log(this.formUser.value)
+  saveChanges(Genres: genresCreateDTO){
+    console.log(Genres);
+    this.router.navigate(['/genres/list'])
   }
-
-  // name = new FormControl('', Validators.required);
-  // email = new FormControl('', [Validators.required, Validators.email]);
-  // direction = new FormControl('', Validators.required);
 }
